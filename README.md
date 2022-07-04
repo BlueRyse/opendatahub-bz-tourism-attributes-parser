@@ -1,0 +1,1 @@
+# opendatahub_bz_tourism_attributes_parser
