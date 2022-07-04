@@ -1,4 +1,3 @@
-from wsgiref.util import request_uri
 import requests
 import json
 
