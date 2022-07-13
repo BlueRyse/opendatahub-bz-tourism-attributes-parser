@@ -1,0 +1,3 @@
+accomodation https://tourism.api.opendatahub.bz.it/v1/Accommodation/5CEA544EE34639034F07B79D4AEEB603_REDUCED?idsource=lts&availabilitychecklanguage=en&roominfo=1-18%2C18&bokfilter=hgv&source=sinfo&detail=0&removenullvalues=false
+event https://tourism.api.opendatahub.bz.it/v1/Event/BFEB2DDB0FD54AC9BC040053A5514A92_REDUCED?removenullvalues=false
+weather https://tourism.api.opendatahub.bz.it/v1/Weather?language=en&extended=true
