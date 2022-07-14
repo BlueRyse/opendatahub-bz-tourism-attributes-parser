@@ -46,8 +46,8 @@ def attribute_is_str(string, attribute, file, indent_level):
 
 def main():
     #accomodation dataset call
-    #request_url = "https://tourism.api.opendatahub.bz.it/v1/Accommodation/5CEA544EE34639034F07B79D4AEEB603_REDUCED?idsource=lts&availabilitychecklanguage=en&roominfo=1-18%2C18&bokfilter=hgv&source=sinfo&detail=0&removenullvalues=false"
-    #dataset = "accomodation"
+    # request_url = "https://tourism.api.opendatahub.bz.it/v1/Accommodation/5CEA544EE34639034F07B79D4AEEB603_REDUCED?idsource=lts&availabilitychecklanguage=en&roominfo=1-18%2C18&bokfilter=hgv&source=sinfo&detail=0&removenullvalues=false"
+    # dataset = "accomodation"
 
     #event dataset call
     #request_url = "https://tourism.api.opendatahub.bz.it/v1/Event/BFEB2DDB0FD54AC9BC040053A5514A92_REDUCED?removenullvalues=false"
