@@ -1,6 +1,6 @@
 import requests
 import json
-
+import datasets
 
 def indent(level,file):
     for i in range(level):
@@ -45,47 +45,36 @@ def attribute_is_str(string, attribute, file, indent_level):
         file.write("</" + string + ">" + "\n")
 
 def main():
-    #accomodation dataset call
-    # request_url = "https://tourism.api.opendatahub.bz.it/v1/Accommodation/5CEA544EE34639034F07B79D4AEEB603_REDUCED?idsource=lts&availabilitychecklanguage=en&roominfo=1-18%2C18&bokfilter=hgv&source=sinfo&detail=0&removenullvalues=false"
-    # dataset = "accomodation"
+    for dataset_name in datasets.datasets_dictionary:
+        request_url = datasets.datasets_dictionary.get(dataset_name)   
 
-    #event dataset call
-    #request_url = "https://tourism.api.opendatahub.bz.it/v1/Event/BFEB2DDB0FD54AC9BC040053A5514A92_REDUCED?removenullvalues=false"
-    #dataset = "event"
+        file = open("keys_list_tourism_" + dataset_name + ".xml", "w+")
+        file.write("<dataset name=\"" + dataset_name + "\"> \n")
 
-    #request_url = "https://tourism.api.opendatahub.bz.it/v1/Weather?language=en&extended=true"
-    #dataset = "weather"
+        json_request = requests.get(request_url)
+        json_data = json_request.json()
 
-    #request_url = ""
-    #dataset = ""
+        indent(1,file)
+        file.write("<attributes> \n")
 
-    file = open("keys_list_tourism_" + dataset + ".xml", "w+")
-    file.write("<dataset name=\"" + dataset + "\"> \n")
+        for key in json_data:
+            value = json_data.get(key)
+            if type(value) is list and len(value) != 0:
+                attribute_is_list(key, value, file, 2)
 
-    json_request = requests.get(request_url)
-    json_data = json_request.json()
+            elif type(value) is list and len(value) == 0:
+                attribute_is_str("list",key, file, 2)
 
-    indent(1,file)
-    file.write("<attributes> \n")
+            elif type(value) is dict:
+                attribute_is_dict(value, file, 2)
+            
+            else:
+                attribute_is_str("attribute",key, file, 2)
 
-    for key in json_data:
-        value = json_data.get(key)
-        if type(value) is list and len(value) != 0:
-            attribute_is_list(key, value, file, 2)
-
-        elif type(value) is list and len(value) == 0:
-            attribute_is_str("list",key, file, 2)
-
-        elif type(value) is dict:
-            attribute_is_dict(value, file, 2)
-        
-        else:
-            attribute_is_str("attribute",key, file, 2)
-
-    indent(1,file)
-    file.write("</attributes>\n")
-    file.write("</dataset>")
-    file.close()
+        indent(1,file)
+        file.write("</attributes>\n")
+        file.write("</dataset>")
+        file.close()
 
 if __name__ == "__main__":
     main()
