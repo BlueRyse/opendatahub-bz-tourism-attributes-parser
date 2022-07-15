@@ -1,6 +1,7 @@
 import requests
 import re
 import json
+import datasets
 
 
 def attribute_is_list(key, list, file):
@@ -46,22 +47,11 @@ def attribute_is_str(string, attribute, file):
 
         file.write(string +","+attribute + "," + "\n")
 
-
-def input_datasets_to_list(file_name):
-    input_datasets = open(file_name,'r')
-    return input_datasets.readlines()
-
-
 def main():
+    for dataset_name in datasets.datasets_dictionary:        
+        request_url = datasets.datasets_dictionary.get(dataset_name)   
 
-    datasets = input_datasets_to_list('datasets.txt')
-    for line in datasets:
-        
-        dataset = line.split()[0]
-        request_url = line.split()[1]    
-
-
-        file = open("keys_list_tourism_" + dataset + ".csv", "w+")
+        file = open("keys_list_tourism_" + dataset_name + ".csv", "w+")
         file.write("type identifier," + "attribute name" + "\n\n")
 
         json_request = requests.get(request_url)
