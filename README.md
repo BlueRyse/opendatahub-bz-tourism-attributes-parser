@@ -6,6 +6,6 @@ The list of calls for each dataset is inside the datasets.py file. They are repr
 
 To retrieve all the attributes of all the datasets simply execute one of the scripts (depending on which format you like).
 
-To see the CSVs correctly, set the #comma ',' as a separator in your CSV viewer (e.g. libreoffice).
+To see the CSVs correctly, set the comma ',' as a separator in your CSV viewer (e.g. libreoffice).
 
 Note that the scripts currently work only with the datasets inside datasets.py, we didn't test the other datasets yet.  
