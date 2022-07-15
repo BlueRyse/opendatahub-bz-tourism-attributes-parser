@@ -8,4 +8,4 @@ To retrieve all the attributes of all the datasets simply execute one of the scr
 
 To see the CSVs correctly, set the #comma ',' as a separator in your CSV viewer (e.g. libreoffice).
 
-Note that the scripts currently work only with the datasets inside datasets.py, we didn't test the other datasets yet.
+Note that the scripts currently work only with the datasets inside datasets.py, we didn't test the other datasets yet.  
