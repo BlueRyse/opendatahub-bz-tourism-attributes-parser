@@ -1,3 +1,5 @@
+[DEPRECATED]
+
 # OpenDataHub BZ Tourism attribute parser
 
 These Python scripts parse all the attributes from the ODH tourism API and creates either XML or CSV, depending on the script you use, files with all the attributes of the datasets inside the [datasets.py](https://github.com/BlueRyse/opendatahub_bz_tourism_attributes_parser/blob/main/datasets.py) file.
